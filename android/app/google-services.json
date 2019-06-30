@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "525795275389",
-    "firebase_url": "https://noticeboard-90ae8.firebaseio.com",
-    "project_id": "noticeboard-90ae8",
-    "storage_bucket": "noticeboard-90ae8.appspot.com"
+    "project_number": "880059936692",
+    "firebase_url": "https://esd-hospital-mangement.firebaseio.com",
+    "project_id": "esd-hospital-mangement",
+    "storage_bucket": "esd-hospital-mangement.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:525795275389:android:66beb7edda8b21be",
+        "mobilesdk_app_id": "1:880059936692:android:66beb7edda8b21be",
         "android_client_info": {
           "package_name": "com.example.moodle"
         }
       },
       "oauth_client": [
         {
-          "client_id": "525795275389-0hbkf9ql622oneehvpjak3g1vlkojeme.apps.googleusercontent.com",
+          "client_id": "880059936692-oobh9nf7rlug1ialreb0l0hmspcq5598.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCs6Z_Jx-u9SJ43RNsTDY8kSg6NginFxmU"
+          "current_key": "AIzaSyBn_-dHAZgz14RcsWK6dpSYkZC6g9NJcbU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "525795275389-0hbkf9ql622oneehvpjak3g1vlkojeme.apps.googleusercontent.com",
+              "client_id": "880059936692-oobh9nf7rlug1ialreb0l0hmspcq5598.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

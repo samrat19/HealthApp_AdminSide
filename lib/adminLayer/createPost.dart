@@ -28,7 +28,7 @@ class _CreatePostState extends State<CreatePost> {
   @override
   void initState() {
     super.initState();
-    collectionReference = Firestore.instance.collection("Notice_Board");
+    collectionReference = Firestore.instance.collection("Cardiology");
     subscription = collectionReference.snapshots().listen((data) {
       setState(() {
         noticeList = data.documents;
@@ -50,13 +50,16 @@ class _CreatePostState extends State<CreatePost> {
     doc_expo = expo.text;
 
     Map<String,String> noticeData = <String,String>{
-      "doctor name": doc_name,
-      "available_days":doc_days,
-      "previous_experience":doc_expo
+      "days":doc_days,
+      "degree":"MBBS",
+      "expo":doc_expo,
+      "id":document_id,
+      "name": doc_name,
     };
-    DocumentReference user = Firestore.instance.document("CardioLogy/$document_id");
+    DocumentReference user = Firestore.instance
+            .document("Cardiology/Cardiology_$document_id");
     user.setData(noticeData).whenComplete((){
-      print("$doc_id  $doc_name $doc_days $doc_expo");
+      print("$document_id  $doc_name $doc_days $doc_expo");
     });
   }
 
@@ -87,7 +90,7 @@ class _CreatePostState extends State<CreatePost> {
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                             labelText: "Doctor Id",
-                            hintText: "Previous id was  ${noticeList[noticeList.length-1]["notice_id"]}",
+                            hintText: "Previous id was  ${noticeList[noticeList.length-1]["id"]}",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                                 borderSide: BorderSide(
@@ -99,7 +102,7 @@ class _CreatePostState extends State<CreatePost> {
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                             labelText: "Doctor Name",
-                            hintText: "Maintain this type 5th May,2019",
+                            hintText: "ABC DEF",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                                 borderSide: BorderSide(
@@ -112,7 +115,7 @@ class _CreatePostState extends State<CreatePost> {
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                             labelText: "Available Days",
-                            hintText: "Write the Information",
+                            hintText: "Mon Wed Fri",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                                 borderSide: BorderSide(
@@ -124,7 +127,7 @@ class _CreatePostState extends State<CreatePost> {
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                             labelText: "Previous Experience",
-                            hintText: "Write the Information",
+                            hintText: "XYZ Hospital",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                                 borderSide: BorderSide(
@@ -132,7 +135,7 @@ class _CreatePostState extends State<CreatePost> {
                       ),
                       Divider(height: 100.0,),
                       RaisedButton(
-                        child: Text("Done"),
+                        child: Text("Upload"),
                         onPressed: uploadnotice
                       )
                     ],
