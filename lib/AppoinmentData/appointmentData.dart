@@ -36,11 +36,11 @@ class _NoticeBoardState extends State<NoticeBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Appointments Scheduled"),backgroundColor: Colors.red[900],),
+      appBar: AppBar(title: Text("Appointments Scheduled"),backgroundColor: Colors.red[800],),
         body: Container(
             child: noticeList != null
                 ? Container(
-                  color: Colors.red[800],
+                  color: Colors.red[900],
                   // decoration: BoxDecoration(
                   //   gradient: LinearGradient(
                   //     colors: [Colors.red[800],Colors.red[300],Colors.white],

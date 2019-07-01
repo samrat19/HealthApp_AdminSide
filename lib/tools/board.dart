@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class Board extends StatelessWidget {
   String notice;
   String notice_id;
-  String date;
-  Board(this.notice, this.notice_id, this.date);
+  String symp;
+  
+  Board(this.notice, this.notice_id, this.symp);
   @override
   Widget build(BuildContext context) {
   
@@ -22,20 +23,26 @@ class Board extends StatelessWidget {
               padding: EdgeInsets.all(30.0),
               child: Column(
                 children: <Widget>[
-                  Container(
-                    child: Text("Patient's name : "+
-                      notice,
-                      style: TextStyle(color: Colors.white, fontSize: 17.0),
+                  FittedBox(
+                                      child: Container(
+                      child: Text("Patient's name : "+
+                        notice,
+                        style: TextStyle(color: Colors.white, fontSize: 17.0),
+                      ),
                     ),
                   ),
                   Divider(),
-                  Text("Doctor's Name : "+notice_id,
-                      style:
-                          TextStyle(color: Colors.white, fontSize: 17.0)),
+                  FittedBox(
+                                      child: Text("Doctor's Name : "+notice_id,
+                        style:
+                            TextStyle(color: Colors.white, fontSize: 17.0)),
+                  ),
                   Divider(),
-                  Text("Appointment day : "+
-                    date,
-                    style: TextStyle(color: Colors.white, fontSize: 17.0),
+                  FittedBox(
+                                      child: Text("Symptoms : "+
+                      symp,
+                      style: TextStyle(color: Colors.white, fontSize: 17.0),
+                    ),
                   ),
                   Divider(),
                 ],
