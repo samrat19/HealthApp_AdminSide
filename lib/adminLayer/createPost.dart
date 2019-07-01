@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
@@ -9,6 +10,8 @@ class CreatePost extends StatefulWidget {
 }
 
 class _CreatePostState extends State<CreatePost> {
+  
+  TextEditingController dept = TextEditingController();
   TextEditingController id = TextEditingController();
   TextEditingController name = TextEditingController();
   TextEditingController days = TextEditingController();
@@ -20,6 +23,7 @@ class _CreatePostState extends State<CreatePost> {
   List<DocumentSnapshot> noticeList;
   StreamSubscription<QuerySnapshot> subscription;
 
+  String doc_dept;
   String doc_id;
   String document_id;
   String doc_name;
@@ -46,6 +50,7 @@ class _CreatePostState extends State<CreatePost> {
 
   void uploadnotice(){
 
+    doc_dept = dept.text;
     document_id = id.text;
     doc_name = name.text;
     doc_days = days.text;
@@ -61,7 +66,7 @@ class _CreatePostState extends State<CreatePost> {
       "degree" : doc_degree,
     };
     DocumentReference user = Firestore.instance
-            .document("Cardiology/Cardiology_$document_id");
+            .document("$doc_dept/${doc_dept}_$document_id");
     user.setData(noticeData).whenComplete((){
       print("$document_id  $doc_name $doc_days $doc_expo");
     });
@@ -89,6 +94,18 @@ class _CreatePostState extends State<CreatePost> {
                   Divider(height: 100.0,),
                   Column(
                     children: <Widget>[
+                      TextFormField(
+                        controller: dept,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                            labelText: "Department",
+                            hintText: "Cardiology Orthopedic Opthalmology Nurology Darmotology",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                                borderSide: BorderSide(
+                                    style: BorderStyle.solid, width: 4.0))),
+                      ),
+                      Divider(),
                       TextFormField(
                         controller: id,
                         keyboardType: TextInputType.text,
