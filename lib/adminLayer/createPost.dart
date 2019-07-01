@@ -13,6 +13,7 @@ class _CreatePostState extends State<CreatePost> {
   TextEditingController name = TextEditingController();
   TextEditingController days = TextEditingController();
   TextEditingController expo = TextEditingController();
+  TextEditingController degree = TextEditingController();
 
   CollectionReference collectionReference;
   DocumentReference user;
@@ -24,6 +25,7 @@ class _CreatePostState extends State<CreatePost> {
   String doc_name;
   String doc_days;
   String doc_expo;
+  String doc_degree;
 
   @override
   void initState() {
@@ -48,6 +50,7 @@ class _CreatePostState extends State<CreatePost> {
     doc_name = name.text;
     doc_days = days.text;
     doc_expo = expo.text;
+    doc_degree = degree.text;
 
     Map<String,String> noticeData = <String,String>{
       "days":doc_days,
@@ -55,6 +58,7 @@ class _CreatePostState extends State<CreatePost> {
       "expo":doc_expo,
       "id":document_id,
       "name": doc_name,
+      "degree" : doc_degree,
     };
     DocumentReference user = Firestore.instance
             .document("Cardiology/Cardiology_$document_id");
@@ -116,6 +120,18 @@ class _CreatePostState extends State<CreatePost> {
                         decoration: InputDecoration(
                             labelText: "Available Days",
                             hintText: "Mon Wed Fri",
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                                borderSide: BorderSide(
+                                    style: BorderStyle.solid, width: 4.0))),
+                      ),
+                      Divider(),
+                      TextFormField(
+                        controller: degree,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                            labelText: "Degree",
+                            hintText: "MBBS",
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                                 borderSide: BorderSide(
