@@ -36,9 +36,17 @@ class _NoticeBoardState extends State<NoticeBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Appointments Scheduled"),backgroundColor: Colors.red[900],),
         body: Container(
             child: noticeList != null
                 ? Container(
+                  color: Colors.red[800],
+                  // decoration: BoxDecoration(
+                  //   gradient: LinearGradient(
+                  //     colors: [Colors.red[800],Colors.red[300],Colors.white],
+                  //     begin: Alignment.topCenter
+                  //     )
+                  // ),
                     child: ListView.builder(
                       itemCount: noticeList.length,
                       itemBuilder: (_, i) {
@@ -50,7 +58,7 @@ class _NoticeBoardState extends State<NoticeBoard> {
                 : Container(
                     child: Center(
                       child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.red[900]),
                       ),
                     ),
                   )));
