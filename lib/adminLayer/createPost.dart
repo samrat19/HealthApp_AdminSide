@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
+import 'package:moodle/homepage.dart';
 
 class CreatePost extends StatefulWidget {
   @override
@@ -9,6 +10,9 @@ class CreatePost extends StatefulWidget {
 }
 
 class _CreatePostState extends State<CreatePost> {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey 
+                = GlobalKey<ScaffoldState>();
   
   TextEditingController dept = TextEditingController();
   TextEditingController id = TextEditingController();
@@ -16,6 +20,8 @@ class _CreatePostState extends State<CreatePost> {
   TextEditingController days = TextEditingController();
   TextEditingController expo = TextEditingController();
   TextEditingController degree = TextEditingController();
+
+  final snackBar = SnackBar(content: Text("Doctor's Details entered"));
 
   CollectionReference collectionReference;
   DocumentReference user;
@@ -58,7 +64,7 @@ class _CreatePostState extends State<CreatePost> {
 
     Map<String,String> noticeData = <String,String>{
       "days":doc_days,
-      "degree":"MBBS",
+      "degree": doc_degree,
       "expo":doc_expo,
       "id":document_id,
       "name": doc_name,
@@ -66,12 +72,17 @@ class _CreatePostState extends State<CreatePost> {
     };
     DocumentReference user = Firestore.instance
             .document("$doc_dept/${doc_dept}_$document_id");
-    user.setData(noticeData).whenComplete((){});
+    user.setData(noticeData).whenComplete((){
+      SnackBar snackBar = SnackBar(content: Text("Upload Success"));
+      _scaffoldKey.currentState.showSnackBar(snackBar);
+      //Navigator.of(context).push(MaterialPageRoute(builder:(_)=>HomePage()));
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("Admin Layer"),
         backgroundColor: Colors.red,
