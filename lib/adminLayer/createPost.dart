@@ -67,9 +67,7 @@ class _CreatePostState extends State<CreatePost> {
     };
     DocumentReference user = Firestore.instance
             .document("$doc_dept/${doc_dept}_$document_id");
-    user.setData(noticeData).whenComplete((){
-      print("$document_id  $doc_name $doc_days $doc_expo");
-    });
+    user.setData(noticeData).whenComplete((){});
   }
 
   @override
