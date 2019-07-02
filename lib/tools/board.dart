@@ -5,16 +5,16 @@ class Board extends StatelessWidget {
   String notice;
   String notice_id;
   String symp;
-  
-  Board(this.notice, this.notice_id, this.symp);
+  String phone;
+
+  Board(this.notice, this.notice_id, this.symp, this.phone);
   @override
   Widget build(BuildContext context) {
-  
     return ClipRRect(
       borderRadius: BorderRadius.circular(50.0),
-          child: Card(
+      child: Card(
         margin: EdgeInsets.all(10.0),
-            child: ClipRRect(
+        child: ClipRRect(
           borderRadius: BorderRadius.circular(40.0),
           clipBehavior: Clip.hardEdge,
           child: Container(
@@ -24,27 +24,35 @@ class Board extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   FittedBox(
-                                      child: Container(
-                      child: Text("Patient's name : "+
-                        notice,
+                    child: Container(
+                      child: Text(
+                        "Patient's name : $notice",
                         style: TextStyle(color: Colors.white, fontSize: 17.0),
                       ),
                     ),
                   ),
                   Divider(),
                   FittedBox(
-                                      child: Text("Doctor's Name : "+notice_id,
-                        style:
-                            TextStyle(color: Colors.white, fontSize: 17.0)),
+                    child: Text("Doctor's Name : $notice_id",
+                        style: TextStyle(color: Colors.white, fontSize: 17.0)),
                   ),
                   Divider(),
                   FittedBox(
-                                      child: Text("Symptoms : "+
-                      symp,
+                    child: Text(
+                      "Symptoms : " + symp,
                       style: TextStyle(color: Colors.white, fontSize: 17.0),
                     ),
                   ),
                   Divider(),
+                  FittedBox(
+                    child: Container(
+                      child: Text(
+                        "Patient's contact number : $phone",
+                        style: TextStyle(color: Colors.white, fontSize: 17.0),
+                      ),
+                    ),
+                  ),
+                  Divider()
                 ],
               )),
         ),

@@ -51,7 +51,7 @@ class _NoticeBoardState extends State<NoticeBoard> {
                       itemCount: noticeList.length,
                       itemBuilder: (_, i) {
                         return Board((noticeList[i])["patient_name"],
-                            (noticeList[i])["doctor_name"], (noticeList[i])["patient_syntom"]);
+                            (noticeList[i])["doctor_name"], (noticeList[i])["patient_syntom"], (noticeList[i])["phone_number"]);
                       },
                     ),
                   )
