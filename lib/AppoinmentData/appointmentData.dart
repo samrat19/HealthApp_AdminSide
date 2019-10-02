@@ -41,12 +41,6 @@ class _NoticeBoardState extends State<NoticeBoard> {
             child: noticeList != null
                 ? Container(
                   color: Colors.red[900],
-                  // decoration: BoxDecoration(
-                  //   gradient: LinearGradient(
-                  //     colors: [Colors.red[800],Colors.red[300],Colors.white],
-                  //     begin: Alignment.topCenter
-                  //     )
-                  // ),
                     child: ListView.builder(
                       itemCount: noticeList.length,
                       itemBuilder: (_, i) {
