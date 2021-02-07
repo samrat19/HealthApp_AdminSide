@@ -70,7 +70,7 @@ class _CreatePostState extends State<CreatePost> {
     DocumentReference user =
         Firestore.instance.document("$doc_dept/${doc_dept}_$document_id");
     user.setData(noticeData).whenComplete(() {
-      SnackBar snackBar = SnackBar(content: Text("Upload Success"));
+      SnackBar snackBar = SnackBar(content: Text("Upload is Successful"));
       _scaffoldKey.currentState.showSnackBar(snackBar);
     });
   }
